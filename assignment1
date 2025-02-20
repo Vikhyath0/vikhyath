@@ -1,0 +1,110 @@
+#include <stdio.h>
+int isEligibleForInsurance(int age, char preExistingCondition, float salary) {
+    
+    if (age >= 18 && age <= 60 && preExistingCondition == 'n' && salary >= 25000) {
+        return 1; 
+    } else {
+        return 0; 
+    }
+}
+
+int main() {
+    int age;
+    char preExistingCondition;
+    float salary;
+
+    
+    printf("Enter patient's age: ");
+    scanf("%d", &age);
+
+    printf("Does the patient have any pre-existing health condition? (y/n): ");
+    scanf(" %c", &preExistingCondition); 
+
+    printf("Enter patient's monthly salary (in ₹): ");
+    scanf("%f", &salary);
+
+    
+    if (isEligibleForInsurance(age, preExistingCondition, salary)) {
+        printf("The patient is eligible for medical insurance.\n");
+    } else {
+        printf("The patient is not eligible for medical insurance.\n");
+    }
+
+    return 0;
+}
+
+
+2.#include <stdio.h>
+
+int main() {
+    int N; 
+    int totalToll = 0;
+    char vehicleType;
+    printf("Enter the number of vehicles: ");
+    scanf("%d", &N);
+    for (int i = 0; i < N; i++) {
+        printf("Enter vehicle type (C for Car, T for Truck, B for Bike, U for Bus): ");
+        scanf(" %c", &vehicleType); 
+        switch (vehicleType) {
+            case 'C':
+                totalToll += 50;
+                break;
+            case 'T':
+                totalToll += 100;
+                break;
+            case 'B':
+                totalToll += 20; 
+                break;
+            case 'U':
+                totalToll += 80;
+                break;
+          
+        }
+  }
+    printf("Total toll tax for %d vehicles: ₹%d\n", N, totalToll);
+    return 0;
+}
+
+
+
+3.#include <stdio.h>
+
+int main() {
+    int choice;
+    float balance = 10000.0; 
+    float amount;
+
+    do {
+      
+        printf("\nATM Menu:\n");
+        printf("1. Withdraw Money\n");
+        printf("2. Deposit Money\n");
+        printf("3. Check Balance\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the amount to withdraw: ₹");
+                scanf("%f", &amount);
+                if (amount > balance) {
+                    printf("Insufficient balance.\n");
+                } else {
+                    balance -= amount;
+                    printf("₹%.2f transaction successfull.remaining amount is %d.\n", amount,balance);
+                }
+                break;
+            case 2:
+                printf("Enter the amount to deposit: ₹");
+                scanf("%f", &amount);
+                balance += amount;
+                printf("₹%.2f deposited successfully.\n", amount);
+                break;
+            case 3:
+                printf("Your current balance is: ₹%.2f\n", balance);
+                break;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
