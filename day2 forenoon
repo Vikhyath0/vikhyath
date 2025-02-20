@@ -1,0 +1,59 @@
+)#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int t;
+    scanf("%d", &t);
+    while (t--) {
+        int n;
+        scanf("%d", &n);
+        char s[n + 1];
+        scanf("%s", s);
+        int cons = 0;
+        for (int i = 0; i < n; i++) {
+            if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') {
+                cons = 0;
+            } else {
+                cons++;
+                if (cons >= 4)
+                    break;
+            }
+        }
+        if (cons >= 4)
+            printf("NO\n");
+        else
+            printf("YES\n");
+    }
+    return 0;
+}
+
+2)#include <stdio.h>
+
+int main() {
+    int T;
+    scanf("%d", &T);
+   
+    while (T--) {
+        int N, K;
+        scanf("%d %d", &N, &K);
+       
+        int A[N];
+        for (int i = 0; i < N; i++) {
+            scanf("%d", &A[i]);
+        }
+       
+        char result[N + 1];
+        for (int i = 0; i < N; i++) {
+            if (K >= A[i]) {
+                K -= A[i];
+                result[i] = '1';
+            } else {
+                result[i] = '0';
+            }
+        }
+        result[N] = '\0';
+        printf("%s\n", result);
+    }
+   
+    return 0;
+}
