@@ -1,0 +1,87 @@
+ #include <stdio.h>
+
+int main() {
+int t,a,b,i,sum=0;
+scanf("%d",&t);
+for(i=0;i<t;i++)
+{
+scanf("%d%d",&a,&b);
+sum=a+b;
+if((sum==2)||(sum==3)||(sum==5)||(sum==7)||(sum==11))
+printf("alice\n");
+else
+printf("bob\n");
+}
+
+}
+
+2.discount
+  #include <stdio.h>
+
+int main() {
+int i,t,a,b,ad,bd;
+scanf("%d",&t);
+for(i=0;i<t;i++)
+{
+   scanf("%d%d",&a,&b);
+   ad=100-(a);
+   bd=200-((b)*2);
+   if(ad>bd)
+    printf("SECOND\n");
+    else if(bd>ad)
+    printf("FIRST\n");
+    else
+    printf("BOTH\n");
+}
+
+
+}
+
+
+
+3. equation
+ 
+  #include <stdio.h>
+int main() {
+int t,i,x,y,a,b;
+scanf("%d",&t);
+for(i=0;i<t;i++)
+{scanf("%d%d",&x,&y);
+a=(x*x*x*x)+(4*y*y);
+b=(4*x*x*y);
+if(a==b)
+printf("yes\n");
+else
+printf("no\n");
+}}
+
+
+4. apple and oranges
+ 
+  #include <stdio.h>
+int main() {
+int i,t,n,m,temp,temp1;
+scanf("%d",&t);
+for(i=0;i<t;i++)
+{
+   scanf("%d%d",&n,&m);
+   if(n<m)
+   {
+   while(m!=0)
+   {
+   temp=m;
+   m=n%m;
+   n=temp;
+   }}
+   else
+   { temp1=n;
+   n=m;
+   m=temp1;
+   while(m!=0){
+   temp=m;
+   m=n%m;
+   n=temp;
+   }}printf("%d\n",n);
+   
+}
+   }
