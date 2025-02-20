@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+#define MAX_MATCHES 100
+float calculateAverage(int scores[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += scores[i];
+    }
+    return (float)sum / n;
+}
+void findHighestAndLowest(int scores[], int n, int *highest, int *lowest) {
+    *highest = scores[0];
+    *lowest = scores[0];
+
+    for (int i = 1; i < n; i++) {
+        if (scores[i] > *highest) {
+            *highest = scores[i];
+        }
+        if (scores[i] < *lowest) {
+            *lowest = scores[i];
+        }
+    }
+}
+
+int main() {
+    int scores[MAX_MATCHES];
+    int n;
+    printf("Enter the number of matches: ");
+    scanf("%d", &n);
+    if (n <= 0 || n > MAX_MATCHES) {
+        printf("Invalid number of matches.\n");
+        return 1;
+    }
+    printf("Enter the scores for %d matches:\n", n);
+    for (int i = 0; i < n; i++) {
+        printf("Match %d: ", i + 1);
+        scanf("%d", &scores[i]);
+    }
+    int highest, lowest;
+    findHighestAndLowest(scores, n, &highest, &lowest);
+    float average = calculateAverage(scores, n);
+    printf("\nMatch Scores: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", scores[i]);
+    }
+    printf("\n");
+
+    printf("Highest score: %d\n", highest);
+    printf("Lowest score: %d\n", lowest);
+    printf("Average score: %.2f\n", average);
+
+    return 0;
+}
+2.#include <stdio.h>
+#include <string.h>
+
+int countPatternOccurrences(const char *sequence, const char *pattern) {
+    int count = 0;
+    int seqLen = strlen(sequence);
+    int patLen = strlen(pattern);
+   
+    for (int i = 0; i <= seqLen - patLen; i++) {
+        if (strncmp(&sequence[i], pattern, patLen) == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    char dnaSequence[1000], pattern[100];
+
+    // Input DNA sequence
+    printf("Enter DNA Sequence: ");
+    scanf("%s", dnaSequence);
+
+    // Input pattern to search
+    printf("Enter pattern to search: ");
+    scanf("%s", pattern);
+
+    // Count occurrences
+    int occurrences = countPatternOccurrences(dnaSequence, pattern);
+
+    // Output result
+    printf("Pattern found %d time(s) in the DNA sequence.\n", occurrences);
+
+    return 0;
+}
