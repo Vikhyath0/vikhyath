@@ -1,0 +1,77 @@
+ #include<stdio.h>
+int main()
+{
+    int id;
+    char n[122];
+    int u;
+    printf("enter id:");
+    scanf("%d",&id);
+    printf("enter name:");
+    scanf("%s",n);
+    printf("enter units:");
+    scanf("%d",&u);
+    float base_amount=100,s,t;
+  if(u>300)
+  { base_amount+= (100.0f *5.0f);
+    base_amount+= (200.0f *7.0f);
+    base_amount+= (u-300)*10.0f;
+}
+else if(u>100)
+  { base_amount+= (100.0f *5.0f);
+    base_amount+= (200.0f *7.0f);
+} else
+  { base_amount+= (100.0f *5.0f); }
+ 
+    if(base_amount>1000)
+    {
+        s=(base_amount/100)*5;
+
+    }
+    t=s+base_amount;
+    printf("name:%s\n",n);
+    printf("id:%d\n",id);
+    printf("base_amount:%f\n",base_amount);
+    printf("surcharge:%f\n",s);
+    printf("total amount:%d\n",t);
+
+}
+
+
+2)  #include<stdio.h>
+#include<string.h>
+int main()
+{  char type[10];
+    int dis,ct,ttt,dt,bbt,tt;
+    printf("ennter type of vehicle:");
+    scanf("%s",type);
+    printf("distance traveled:");
+    scanf("%d",&dis);
+    if(strcmp(type,"car")==0)
+    {
+        tt=dis*5;
+        dt=0;
+    }
+    else if(strcmp(type,"truck")==0)
+    {
+        ttt=dis*10;
+            if(dis>500)
+            {
+                dt=tt*0.1;
+                tt=ttt-dt;
+            }
+           
+    }
+    else
+    {
+        bbt=tt*8;
+        if(dis>300)
+        {
+            dt=tt*0.05;
+            tt=bbt-dt;
+        }
+    }
+    printf("type of vechile:%s\n",type);
+    printf("distance travel:%d\n",dis);
+    printf("discount amount:%d\n",dt);
+    printf("total tax:%d\n",tt);
+}
